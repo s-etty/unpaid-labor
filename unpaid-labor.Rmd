@@ -1,0 +1,47 @@
+---
+title: "Visualizing Gender Inequality Through Unpaid Labor"
+output:
+ prettydoc::html_pretty:
+  theme: leonids
+  
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Unpaid Labor
+
+One definition from the UN describes unpaid labor as, 
+
+> All productive activities outside the official labour market done by individuals for their own households or for others...Housework, care for children and for sick and old people, do-it-yourself jobs and voluntary community work or work in political or societal organizations, subsistence agriculture, help in family businesses, building the family house, maintenance work, transport services, etc.
+
+[Source](https://www.un.org/esa/esa99dp4.pdf)
+
+Interestingly, all of these tasks have something in common: they could be replaced by market goods or paid laborers. Following this logic, we will be disecting how much unpaid work is done and by whom and the cost of unpaid labor if it were adequately compensated.
+
+## United Nations Sustainable Development Goals
+
+The United Nations Sustainable Development Goals (SDG) are,
+
+> the blueprint to achieve a better and more sustainable future for all. They address the global challenges we face, including those related to poverty, inequality, climate change, environmental degradation, peace and justice. The 17 Goals are all interconnected, and in order to leave no one behind, it is important that we achieve them all by 2030. 
+
+[Source](https://www.un.org/sustainabledevelopment/sustainable-development-goals/)
+
+Looking at unpaid labor, the UN aims to, "Recognize and value unpaid care and domestic work through the provision of public services, infrastructure and social protection policies and the promotion of shared responsibility within the household and the family as nationally appropriate"
+
+## The Data
+
+Found on the [SDG Indicator Database](https://unstats.un.org/sdgs/indicators/database/), the UN began tracking the proportion of unpaid work by sex, age, and location.
+
+```{r message = FALSE, warning = FALSE, echo = FALSE}
+library(readr)
+library(dplyr)
+library(plotly)
+
+d_types <- 'fficidccf'
+unpaid_labor <- read_csv('data/un-unpaid-labor-data.csv', col_names = TRUE, col_types = d_types)
+```
+``` {r}
+knitr::kable(head(unpaid_labor[4:9]))
+
+```

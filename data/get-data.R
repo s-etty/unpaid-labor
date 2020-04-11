@@ -41,7 +41,7 @@ unpaid_labor <- data$data
 #extracting the data from the data dataframe from the JSON request
 
 unpaid_labor <- unpaid_labor[, c('seriesDescription', 'seriesCount', 'geoAreaCode', 'geoAreaName',
-                                 'timePeriodStart', 'value', 'dimensions')]
+                                 'timePeriodStart', 'value')]
 #selecting only the columns we need
 
 #unpaid_test <- tidyr::unnest(unpaid_labor, cols = c('dimensions'))
